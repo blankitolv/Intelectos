@@ -1,0 +1,265 @@
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  :root {
+  --porcentaje-izquierdo: 65%;
+  }
+  $casiNegro :#3a3939;
+
+  @font-face {
+    font-family: "Goudy";
+    src: url('../fonts/Goudy/GoudyBookletter1911-Regular.ttf');
+  }
+  @font-face {
+    font-family: "Akatab";
+    src: url("../fonts/Akatab/Akatab-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Akatab";
+    src: url("../fonts/Akatab/Akatab-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Akatab";
+    src: url("../fonts/Akatab/Akatab-ExtraBold.ttf") format("truetype");
+    font-weight: 800; /* Puedes ajustar el valor según sea necesario */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Akatab";
+    src: url("../fonts/Akatab/Akatab-Medium.ttf") format("truetype");
+    font-weight: 500; /* Puedes ajustar el valor según sea necesario */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Akatab";
+    src: url("../fonts/Akatab/Akatab-SemiBold.ttf") format("truetype");
+    font-weight: 600; /* Puedes ajustar el valor según sea necesario */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Akatab";
+    src: url("../fonts/Akatab/Akatab-Black.ttf") format("truetype");
+    font-weight: 900; /* Puedes ajustar el valor según sea necesario */
+    font-style: normal;
+  }
+  body {
+    background-color: #F2F2F2;
+  }
+  /* .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+  .nav {
+    position: sticky;
+    top: 50px;
+    max-width: 20%;
+    min-width: 18%;
+    height: 90vh;
+    border-right: 1.3px solid rgb(224, 224, 224);
+    ul {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: center;
+      align-content: center;
+    }
+    li {
+      display: flex;
+      margin: 15px 0px;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      list-style-type:none;
+      color: rgb(0, 0, 0);
+      border-radius: 50%;
+      background-color: rgba(229, 149, 166, 0);
+      // background-color: rgba(229, 149, 166, 0.726);
+      cursor: pointer;
+      &:hover {
+        transition: 0.3s;
+        transform: scale(1.3);
+        background-color: rgba(37, 39, 182, 0.445);
+        color: white;
+        // text-shadow: rgba(255, 0, 0, 0.582) 1px 0 10px;
+      }
+      &:active {
+        transition: 0.2 all;
+        transform: scale(0.95);
+      }
+      & ._selected {
+        padding: 10px;
+        background-color: #3b3b3b;
+        color: rgb(255, 255, 255);
+        border-radius: 50%;
+      }
+    }
+    i {
+      font-size: 1.5em;
+    }
+  }
+
+  .izq {
+    width: var(--porcentaje-izquierdo);
+    min-height: 200vh;
+    background-color: rgb(232, 235, 228);
+    display: flex;
+    justify-content: center;
+    &::before{
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 35%;
+      width: 15px;
+      height: 100%;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.178),rgba(0, 0, 0, 0.020), rgba(0, 0, 0, 0));
+      z-index: 1;
+    }
+  }
+
+  .izq_content {
+    width: 100%;
+    min-height: 90vh;
+    .begin {
+      min-height: 100vh;
+    }
+    .search {
+      height: 10vh;
+      position: sticky;
+      top: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom, rgb(232, 235, 228) 60%, rgba(232, 235, 228, 0) 100%);
+      .form_search {
+        display: flex;
+        .icon_search {
+          &::after {
+            content: url('../icons/search.svg');
+            display: block;
+            height: 1.3em;
+            width: 1.3em;
+            margin-left: 15px;
+            filter: invert(50%) sepia(100%) hue-rotate(180deg);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .search input[type=text] {
+      width: 60%;
+      align-self: center;
+      height: fit-content;
+      padding: 2px;
+      font-size: 1.0em;
+      margin-left: 15px;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 0.5px solid rgb(187, 187, 187);
+      background-color: rgb(232, 235, 228);
+      font-family: 'Goudi';
+      &:focus{
+        transition: 0.3s all;
+        transform: scale(1.05);
+        box-shadow: 1px black;
+        outline: none;
+      }
+    }
+    ._content{
+      margin-left: 30px;
+      min-height: 100vh;
+      /* background-color: white; */
+      ._title {
+        max-width: 50%;
+        font-family: 'Akatab';
+        font-size: 2em;
+        color: $casiNegro;
+        /* font-weight: 600; */
+        /* letter-spacing: 0.2px; */
+      }
+      ._description {
+        max-width: 70%;
+        margin-top: 20px;
+        p {
+          font-family: 'Akatab';
+          font-weight: normal;
+          letter-spacing: -0.5px;
+        }
+      }
+      ._buttons {
+        display: flex;
+        margin-top: 30px;
+        /* padding: 10px 20px; */
+        .one_button {
+          width: fit-content;
+          display: flex;
+          background-color: rgba(55, 47, 87, 0.726);
+          padding: 10px 15px;
+          border-radius: 500px;
+          color: #f1f1eb;
+          font-family: 'Akatab';
+          cursor: pointer;
+          user-select: none;
+          // font-weight: ;
+          &:hover{
+            transition: 0.15s;
+            background-color: $casiNegro;
+          }
+          &:active{
+            transform: scale(0.9)
+          }
+        }
+      }
+    }
+  }
+
+
+  ._content ._buttons i {
+    margin-left: 5px;
+  }
+  .populares {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    // background-color: aquamarine;
+    ._populares_titulo {
+      font-family: Akatab, Geneva, Tahoma, sans-serif;
+      font-weight: 600;
+      color: $casiNegro
+    }
+    ._populares_tapas{
+      margin-top: 30px;
+      display: flex;
+      .tapa {
+        &:not(:first-child) {
+          margin-left: 30px;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        ._populares_tapas_img {
+          img {
+            width: 170px;
+          }
+        }
+        ._populares_tapas_title {
+          font-family: Akatab, Geneva, Tahoma, sans-serif;
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+
+
+
+ 
+  .der {
+    width: calc(100% - var(--porcentaje-izquierdo));
+    min-height: 100vh;
+    background-color: #f1f1eb;
+  }
